@@ -69,9 +69,7 @@ def backprop(self, x, y):
     for b, w in zip(self.biases, self.weights):
         z = np.dot(w, activation)+b
         zs.append(z)
-        activation = sigmoid(z) 
-	#here they redefine activation as the sigmoid of the
-	#activation and add it to activations list
+        activation = sigmoid(z)
         activations.append(activation)
     # backward pass
     delta = self.cost_derivative(activations[-1], y) * sigmoid_prime(zs[-1])
